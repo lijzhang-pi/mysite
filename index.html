@@ -1,135 +1,203 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="张利军的个人网站">
-    <meta name="keywords" content="个人网站,作品集,项目展示">
-    <meta name="author" content="张利军">
-    <title>张利军 - 个人网站</title>
+    <meta name="description" content="張利軍のポートフォリオサイト - 金融システムエンジニア">
+    <meta name="keywords" content="システムエンジニア,金融システム,COBOL,Python,Java,クレジットカード">
+    <meta name="author" content="張利軍">
+    <title>張利軍 - システムエンジニア</title>
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-    <!-- 导航栏 -->
+    <!-- ナビゲーションバー -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <h2>张利军</h2>
+                <h2>張 利軍</h2>
             </div>
-            <button class="nav-toggle" aria-label="切换导航菜单">
+            <button class="nav-toggle" aria-label="メニュー切替">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
             <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">首页</a></li>
-                <li><a href="#about" class="nav-link">关于</a></li>
-                <li><a href="#projects" class="nav-link">项目</a></li>
-                <li><a href="#skills" class="nav-link">技能</a></li>
-                <li><a href="#contact" class="nav-link">联系</a></li>
+                <li><a href="#home" class="nav-link">ホーム</a></li>
+                <li><a href="#about" class="nav-link">プロフィール</a></li>
+                <li><a href="#experience" class="nav-link">職務経歴</a></li>
+                <li><a href="#skills" class="nav-link">スキル</a></li>
+                <li><a href="#contact" class="nav-link">お問い合わせ</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- 首页/英雄区 -->
+    <!-- ヒーローセクション -->
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title">你好，我是<span class="highlight">张利军</span></h1>
-                <p class="hero-subtitle">欢迎来到我的个人网站</p>
+                <h1 class="hero-title">こんにちは、<span class="highlight">張 利軍</span>です</h1>
+                <p class="hero-subtitle">システムエンジニア</p>
                 <p class="hero-description">
-                    这里展示了我的项目、技能和联系方式
+                    金融システム開発に特化した11年以上の実務経験を持つエンジニアです
                 </p>
-                <a href="#about" class="btn btn-primary">了解更多</a>
+                <a href="#about" class="btn btn-primary">詳しく見る</a>
             </div>
         </div>
     </section>
 
-    <!-- 关于我 -->
+    <!-- プロフィール -->
     <section id="about" class="section about">
         <div class="container">
-            <h2 class="section-title">关于我</h2>
+            <h2 class="section-title">プロフィール</h2>
             <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        你好！我是张利军，很高兴你能访问我的网站。
-                    </p>
-                    <p>
-                        在这里，你可以了解我的技能、查看我的项目作品，以及找到与我联系的方式。
-                    </p>
-                    <p>
-                        我热衷于学习新技术，不断提升自己的能力，希望能够创造有价值的作品。
-                    </p>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <h3>経歴概要</h3>
+                        <p>
+                            2013年7月に天津理工大学情報工学部を卒業後、金融システム開発に従事し、
+                            大手金融機関のクレジットカード基幹システムや海外決済システムの開発に携わってきました。
+                        </p>
+                        <p>
+                            主な実績として、Orico、JCB、三菱UFJ銀行などの大規模金融システム開発に参加し、
+                            要件定義から設計、開発、テスト、本番リリースまでの全工程を経験しています。
+                        </p>
+                        <p>
+                            特にメインフレーム環境でのCOBOL開発、Pythonを使った機械学習システム、
+                            ISO20022対応などの最新技術にも対応可能です。
+                        </p>
+                    </div>
+                    <div class="about-info">
+                        <h3>基本情報</h3>
+                        <ul class="info-list">
+                            <li><strong>氏名：</strong>張 利軍（チョウ リグン）</li>
+                            <li><strong>最終学歴：</strong>天津理工大学 情報工学部</li>
+                            <li><strong>卒業年度：</strong>2013年7月</li>
+                            <li><strong>経験年数：</strong>11年3ヶ月</li>
+                            <li><strong>滞日年数：</strong>6年3ヶ月</li>
+                            <li><strong>最寄り駅：</strong>大久保駅</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 项目展示 -->
-    <section id="projects" class="section projects">
+    <!-- 職務経歴 -->
+    <section id="experience" class="section projects">
         <div class="container">
-            <h2 class="section-title">项目展示</h2>
-            <div class="projects-grid">
-                <!-- 项目1 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">项目预览</div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">项目名称 1</h3>
-                        <p class="project-description">
-                            这是项目的简短描述，介绍项目的主要功能和特点。
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">HTML</span>
-                            <span class="tag">CSS</span>
-                            <span class="tag">JavaScript</span>
+            <h2 class="section-title">職務経歴</h2>
+            <div class="timeline">
+                <!-- プロジェクト1 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">2023年12月 - 2025年10月（1年12ヶ月）</div>
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">OVS-BAS（三菱UFJ銀行海外システム）</h3>
+                            <span class="role-badge">SE</span>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-small">查看详情</a>
-                            <a href="#" class="btn btn-small btn-outline">源码</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 项目2 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">项目预览</div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">项目名称 2</h3>
-                        <p class="project-description">
-                            这是另一个项目的描述，展示不同的技术和应用场景。
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">React</span>
-                            <span class="tag">Node.js</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-small">查看详情</a>
-                            <a href="#" class="btn btn-small btn-outline">源码</a>
+                        <div class="project-info">
+                            <p class="project-description">
+                                三菱UFJ銀行の海外基幹システムにおけるSWIFT ISO20022対応プロジェクト。
+                                MTフォーマットからMXフォーマットへの変更に伴い、camt電文処理機能の開発、
+                                画面・帳票改修、インターフェース構築を担当。
+                            </p>
+                            <div class="project-details">
+                                <div><strong>規模：</strong>30名</div>
+                                <div><strong>担当工程：</strong>基本設計、製造、テスト、本番リリース</div>
+                            </div>
+                            <div class="project-tags">
+                                <span class="tag">IBM z/OS</span>
+                                <span class="tag">COBOL</span>
+                                <span class="tag">JCL</span>
+                                <span class="tag">DB2</span>
+                                <span class="tag">ISO20022</span>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- 项目3 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">项目预览</div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">项目名称 3</h3>
-                        <p class="project-description">
-                            更多精彩项目，持续更新中...
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">数据分析</span>
+                <!-- プロジェクト2 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">2019年9月 - 2023年11月（4年4ヶ月）</div>
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">JENIUS（JCBクレジットカード基幹システム）</h3>
+                            <span class="role-badge">SE</span>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-small">查看详情</a>
-                            <a href="#" class="btn btn-small btn-outline">源码</a>
+                        <div class="project-info">
+                            <p class="project-description">
+                                JCBのクレジットカード基幹システムにおける加盟店情報・売上管理機能の開発。
+                                システム化要件定義から本番リリースまでの全工程を担当。
+                                主な案件：媒体切替、加盟店口座クリーニング、テスト売上データ有効性チェック、ISO20022対応。
+                            </p>
+                            <div class="project-details">
+                                <div><strong>規模：</strong>500名</div>
+                                <div><strong>担当工程：</strong>要件定義、基本設計、詳細設計、製造、テスト、リリース</div>
+                            </div>
+                            <div class="project-tags">
+                                <span class="tag">IBM z/OS</span>
+                                <span class="tag">COBOL</span>
+                                <span class="tag">Java</span>
+                                <span class="tag">DB2</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- プロジェクト3 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">2018年6月 - 2019年8月（1年3ヶ月）</div>
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">IP-ASSET（ソーシャル評判分析システム）</h3>
+                            <span class="role-badge">SE</span>
+                        </div>
+                        <div class="project-info">
+                            <p class="project-description">
+                                融資先企業・店舗のソーシャルメディアにおける評判を取得・分析するシステム。
+                                Yahoo、Googleロコなどの外部APIと連携し、口コミ情報を取得。
+                                TensorFlowを用いた自然言語処理により、センチメント分析（Positive/Neutral/Negative）を実装。
+                            </p>
+                            <div class="project-details">
+                                <div><strong>規模：</strong>10名</div>
+                                <div><strong>担当工程：</strong>全工程（要件定義～リリース）</div>
+                            </div>
+                            <div class="project-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">Angular</span>
+                                <span class="tag">MongoDB</span>
+                                <span class="tag">TensorFlow</span>
+                                <span class="tag">機械学習</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- プロジェクト4 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">2013年7月 - 2018年6月（4年12ヶ月）</div>
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">HELIOS（Oricoクレジットカードシステム）</h3>
+                            <span class="role-badge">PG</span>
+                        </div>
+                        <div class="project-info">
+                            <p class="project-description">
+                                オリエントコーポレーションのクレジットカード基幹システム開発。
+                                詳細設計書に基づくCOBOLプログラミング、単体テスト、結合テスト、
+                                システムテストの実施。TWS JOBNETの運用管理も担当。
+                            </p>
+                            <div class="project-details">
+                                <div><strong>規模：</strong>1200名</div>
+                                <div><strong>担当工程：</strong>詳細設計、製造、テスト</div>
+                            </div>
+                            <div class="project-tags">
+                                <span class="tag">IBM z/OS</span>
+                                <span class="tag">COBOL</span>
+                                <span class="tag">JCL</span>
+                                <span class="tag">DB2</span>
+                                <span class="tag">HLL/WB</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -137,78 +205,182 @@
         </div>
     </section>
 
-    <!-- 技能 -->
+    <!-- スキル -->
     <section id="skills" class="section skills">
         <div class="container">
-            <h2 class="section-title">技能</h2>
-            <div class="skills-grid">
+            <h2 class="section-title">スキル</h2>
+            <div class="skills-container">
+                <!-- OS/機種 -->
                 <div class="skill-category">
-                    <h3 class="skill-category-title">前端开发</h3>
-                    <ul class="skill-list">
-                        <li>HTML5 & CSS3</li>
-                        <li>JavaScript (ES6+)</li>
-                        <li>响应式设计</li>
-                        <li>前端框架（如需要）</li>
-                    </ul>
+                    <h3 class="skill-category-title">OS / 機種</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">Windows</span>
+                            <span class="skill-level level-a">A - 精通</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">IBM z/OS</span>
+                            <span class="skill-level level-a">A - 精通</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Linux</span>
+                            <span class="skill-level level-b">B - 単独可能</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Mac OS</span>
+                            <span class="skill-level level-b">B - 単独可能</span>
+                        </div>
+                    </div>
                 </div>
 
+                <!-- プログラミング言語 -->
                 <div class="skill-category">
-                    <h3 class="skill-category-title">工具与平台</h3>
-                    <ul class="skill-list">
-                        <li>Git & GitHub</li>
-                        <li>VS Code</li>
-                        <li>浏览器开发者工具</li>
-                        <li>命令行</li>
-                    </ul>
+                    <h3 class="skill-category-title">プログラミング言語</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">COBOL</span>
+                            <span class="skill-level level-a">A - 精通</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Python</span>
+                            <span class="skill-level level-b">B - 単独可能</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Java</span>
+                            <span class="skill-level level-c">C - 指導可能</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">JCL</span>
+                            <span class="skill-level level-a">A - 精通</span>
+                        </div>
+                    </div>
                 </div>
 
+                <!-- データベース -->
                 <div class="skill-category">
-                    <h3 class="skill-category-title">其他技能</h3>
-                    <ul class="skill-list">
-                        <li>问题解决能力</li>
-                        <li>持续学习</li>
-                        <li>团队协作</li>
-                        <li>项目管理</li>
-                    </ul>
+                    <h3 class="skill-category-title">データベース</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">DB2</span>
+                            <span class="skill-level level-a">A - 精通</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Oracle</span>
+                            <span class="skill-level level-b">B - 単独可能</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">MongoDB</span>
+                            <span class="skill-level level-b">B - 単独可能</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- フレームワーク・ツール -->
+                <div class="skill-category">
+                    <h3 class="skill-category-title">フレームワーク / ツール</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">Spring</span>
+                            <span class="skill-level level-b">B - 単独可能</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Struts</span>
+                            <span class="skill-level level-b">B - 単独可能</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Terasoluna</span>
+                            <span class="skill-level level-b">B - 単独可能</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Angular</span>
+                            <span class="skill-level level-b">B - 単独可能</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">TensorFlow</span>
+                            <span class="skill-level level-b">B - 単独可能</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">HLL/WB</span>
+                            <span class="skill-level level-a">A - 精通</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 業務知識 -->
+                <div class="skill-category">
+                    <h3 class="skill-category-title">業務知識</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">金融システム</span>
+                            <span class="skill-level level-a">A - 精通</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">クレジットカード業務</span>
+                            <span class="skill-level level-a">A - 精通</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">SWIFT / ISO20022</span>
+                            <span class="skill-level level-a">A - 精通</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 言語能力 -->
+                <div class="skill-category">
+                    <h3 class="skill-category-title">言語能力</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">日本語</span>
+                            <span class="skill-level level-b">B - ビジネスレベル</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">中国語</span>
+                            <span class="skill-level level-a">A - 母国語</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">英語</span>
+                            <span class="skill-level level-c">C - 交流可能</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 联系方式 -->
+    <!-- お問い合わせ -->
     <section id="contact" class="section contact">
         <div class="container">
-            <h2 class="section-title">联系我</h2>
+            <h2 class="section-title">お問い合わせ</h2>
             <div class="contact-content">
                 <p class="contact-intro">
-                    如果你想联系我，可以通过以下方式：
+                    ご連絡は以下の方法でお願いいたします
                 </p>
                 <div class="contact-methods">
                     <div class="contact-item">
                         <div class="contact-icon">📧</div>
-                        <h3>邮箱</h3>
-                        <p>your.email@example.com</p>
+                        <h3>メール</h3>
+                        <p><a href="mailto:lijzhang1988@gmail.com">lijzhang1988@gmail.com</a></p>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">🔗</div>
                         <h3>GitHub</h3>
-                        <p><a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></p>
+                        <p><a href="https://github.com/lijzhang-pi" target="_blank">github.com/lijzhang-pi</a></p>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">💼</div>
-                        <h3>领英</h3>
-                        <p>linkedin.com/in/yourprofile</p>
+                        <div class="contact-icon">📍</div>
+                        <h3>最寄り駅</h3>
+                        <p>大久保駅</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 页脚 -->
+    <!-- フッター -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 张利军. 保留所有权利.</p>
-            <p class="footer-note">使用 HTML、CSS 和 JavaScript 构建 | 部署在 GitHub Pages</p>
+            <p>&copy; 2025 張利軍. All rights reserved.</p>
+            <p class="footer-note">Built with HTML, CSS and JavaScript | Hosted on GitHub Pages</p>
         </div>
     </footer>
 

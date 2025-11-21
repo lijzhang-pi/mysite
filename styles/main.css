@@ -477,7 +477,176 @@ ul {
 }
 
 /* ====================
-   响应式设计
+   プロフィールセクション追加スタイル
+   ==================== */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-md);
+}
+
+.about-text h3,
+.about-info h3 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.3rem;
+}
+
+.info-list {
+    list-style: none;
+    padding: 0;
+}
+
+.info-list li {
+    padding: var(--spacing-xs) 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.info-list li:last-child {
+    border-bottom: none;
+}
+
+/* ====================
+   タイムライン（職務経歴）
+   ==================== */
+
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--primary-color);
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: var(--spacing-lg);
+    padding-bottom: var(--spacing-lg);
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    border: 3px solid white;
+    box-shadow: 0 0 0 3px var(--primary-color);
+}
+
+.timeline-date {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.1rem;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.role-badge {
+    background: var(--accent-color);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.project-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-sm);
+    margin: var(--spacing-sm) 0;
+    padding: var(--spacing-sm);
+    background: var(--bg-gray);
+    border-radius: var(--border-radius);
+}
+
+/* ====================
+   スキルセクション追加スタイル
+   ==================== */
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.skill-items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.skill-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-xs);
+    background: var(--bg-gray);
+    border-radius: 5px;
+    transition: var(--transition);
+}
+
+.skill-item:hover {
+    background: #e8f4f8;
+    transform: translateX(5px);
+}
+
+.skill-name {
+    font-weight: 500;
+}
+
+.skill-level {
+    font-size: 0.85rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.level-a {
+    background: #d4edda;
+    color: #155724;
+}
+
+.level-b {
+    background: #d1ecf1;
+    color: #0c5460;
+}
+
+.level-c {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.level-d {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* ====================
+   响応式設計
    ==================== */
 
 @media (max-width: 768px) {
@@ -531,6 +700,25 @@ ul {
 
     /* 联系方式 */
     .contact-methods {
+        grid-template-columns: 1fr;
+    }
+
+    /* プロフィール */
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* タイムライン */
+    .timeline::before {
+        left: 0;
+    }
+
+    .timeline-item {
+        padding-left: var(--spacing-md);
+    }
+
+    /* スキル */
+    .skills-container {
         grid-template-columns: 1fr;
     }
 }
