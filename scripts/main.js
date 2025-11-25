@@ -1,4 +1,35 @@
 // ====================
+// 東京時間表示
+// ====================
+
+function updateTokyoTime() {
+    const timeElement = document.getElementById('tokyo-time');
+    if (!timeElement) return;
+
+    // 東京時間を取得（Asia/Tokyo タイムゾーン）
+    const tokyoTime = new Date().toLocaleString('ja-JP', {
+        timeZone: 'Asia/Tokyo',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        weekday: 'short',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+    });
+
+    // フォーマット: YYYY年MM月DD日 (曜日) HH:mm:ss
+    timeElement.textContent = tokyoTime;
+}
+
+// ページ読み込み時に即座に時刻を表示
+updateTokyoTime();
+
+// 1秒ごとに時刻を更新
+setInterval(updateTokyoTime, 1000);
+
+// ====================
 // 移动端导航菜单切换
 // ====================
 

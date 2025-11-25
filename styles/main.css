@@ -138,12 +138,62 @@ ul {
 }
 
 /* ====================
+   時間バー
+   ==================== */
+
+.time-bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 0.5rem 0;
+    z-index: 1001;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.time-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.time-icon {
+    font-size: 1.2rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.time-label {
+    font-weight: 500;
+}
+
+.time-value {
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* ====================
    导航栏
    ==================== */
 
 .navbar {
     position: fixed;
-    top: 0;
+    top: 40px;
     width: 100%;
     background: white;
     box-shadow: var(--shadow);
@@ -217,7 +267,7 @@ ul {
     align-items: center;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding-top: 80px;
+    padding-top: 120px;
 }
 
 .hero-content {
