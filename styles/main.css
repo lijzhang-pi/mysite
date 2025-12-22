@@ -797,8 +797,20 @@ ul {
     min-height: 40vh;
 }
 
+.memo-hero .hero-content {
+    text-align: center;
+}
+
 .memo-hero .hero-title {
     font-size: 3rem;
+}
+
+.memo-hero .hero-subtitle {
+    text-align: center;
+}
+
+.memo-hero .hero-description {
+    text-align: center;
 }
 
 /* Memoセクション */
