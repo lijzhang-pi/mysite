@@ -48,7 +48,7 @@
     <section class="hero memo-hero">
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title">📝 <span class="highlight">Memo</span></h1>
+                <h1 class="hero-title"><span class="highlight">Memo</span></h1>
                 <p class="hero-subtitle">日常メモ・学習ノート・作業ログ</p>
                 <p class="hero-description">
                     技術学習、プロジェクト作業、日々の気づきを記録しています
@@ -68,24 +68,27 @@
                     <div class="memo-date">2025年12月02日</div>
                     <div class="memo-card">
                         <div class="memo-header">
-                            <h3 class="memo-title">個人サイトにMemoページを追加</h3>
+                            <h3 class="memo-title">OPCシステム</h3>
                             <span class="memo-tag tag-work">作業ログ</span>
                         </div>
                         <div class="memo-content">
                             <p>
-                                個人サイトに日常メモを記録するためのMemoページを新規追加しました。
-                                時間線形式でメモを表示し、学習ノート、作業ログ、技術メモなどを整理できるようにしました。
+                                バッチジョブ全体の制御はIBMパッケージのOPC（Operations Planning and Control）が行い、
+                                それを補完する形で登録システム・JAGERSなどの周辺システムがある。
+                                ジョブ実行タイミングができたところで、
+                                ジョブ実行システムのOPCトラッカーへジョブの実行依頼を行う→ジョブが実行される→ジョブの終了→
+                                ジョブの終了情報をOPCトラッカーが取得→OPCトラッカーからOPC実行監視へジョブの終了情報が伝えられる。
                             </p>
                             <ul class="memo-list">
-                                <li>タイムライン形式のデザインを実装</li>
-                                <li>既存サイトとの統一感を保持</li>
-                                <li>レスポンシブ対応（モバイル・タブレット・デスクトップ）</li>
+                                <li>OPC登録システムにてOPC AD,JCLの登録</li>
+                                <li>JCLはJAGERS1により展開された形でリリースされる</li>
+                                <li>OPC ADの情報から当日実行ジョブネットワーク(先行後続関係を含む)を作成</li>
+                                <li>当日実行ジョブのJCLを生成する</li>
                             </ul>
                         </div>
                         <div class="memo-tags">
-                            <span class="tag">HTML</span>
-                            <span class="tag">CSS</span>
-                            <span class="tag">Web開発</span>
+                            <span class="tag">TSO</span>
+                            <span class="tag">OPC</span>
                         </div>
                     </div>
                 </div>
