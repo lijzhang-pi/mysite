@@ -793,20 +793,27 @@ ul {
 
 /* Memoヒーローセクション */
 .memo-hero {
-    padding: var(--spacing-xl) 0;
-    min-height: 40vh;
+    padding-top: 150px;
+    padding-bottom: var(--spacing-xl);
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
 }
 
 .memo-hero .hero-content {
     text-align: center;
+    width: 100%;
 }
 
 .memo-hero .hero-title {
     font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+    line-height: 1.2;
 }
 
 .memo-hero .hero-subtitle {
     text-align: center;
+    margin-bottom: var(--spacing-sm);
 }
 
 .memo-hero .hero-description {
