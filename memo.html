@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="張利軍の日常Memo - 学習ノート・作業ログ・技術メモ">
+    <meta name="author" content="張利軍">
+    <title>Memo - 張利軍</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+    <!-- 東京時間表示 -->
+    <div class="time-bar">
+        <div class="container">
+            <div class="time-display">
+                <span class="time-icon">🕐</span>
+                <span class="time-label">東京現在時刻：</span>
+                <span id="tokyo-time" class="time-value">読み込み中...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ナビゲーションバー -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h2>張 利軍</h2>
+            </div>
+            <button class="nav-toggle" aria-label="メニュー切替">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">ホーム</a></li>
+                <li><a href="index.html#about" class="nav-link">プロフィール</a></li>
+                <li><a href="index.html#experience" class="nav-link">職務経歴</a></li>
+                <li><a href="index.html#skills" class="nav-link">スキル</a></li>
+                <li><a href="memo.html" class="nav-link active">Memo</a></li>
+                <li><a href="index.html#contact" class="nav-link">お問い合わせ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Memoヒーローセクション -->
+    <section class="hero memo-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">📝 <span class="highlight">Memo</span></h1>
+                <p class="hero-subtitle">日常メモ・学習ノート・作業ログ</p>
+                <p class="hero-description">
+                    技術学習、プロジェクト作業、日々の気づきを記録しています
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Memoタイムライン -->
+    <section class="section memo-section">
+        <div class="container">
+            <h2 class="section-title">最近のMemo</h2>
+
+            <div class="memo-timeline">
+                <!-- Memo項目1 -->
+                <div class="memo-item">
+                    <div class="memo-date">2025年12月02日</div>
+                    <div class="memo-card">
+                        <div class="memo-header">
+                            <h3 class="memo-title">個人サイトにMemoページを追加</h3>
+                            <span class="memo-tag tag-work">作業ログ</span>
+                        </div>
+                        <div class="memo-content">
+                            <p>
+                                個人サイトに日常メモを記録するためのMemoページを新規追加しました。
+                                時間線形式でメモを表示し、学習ノート、作業ログ、技術メモなどを整理できるようにしました。
+                            </p>
+                            <ul class="memo-list">
+                                <li>タイムライン形式のデザインを実装</li>
+                                <li>既存サイトとの統一感を保持</li>
+                                <li>レスポンシブ対応（モバイル・タブレット・デスクトップ）</li>
+                            </ul>
+                        </div>
+                        <div class="memo-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">Web開発</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Memo項目2 - サンプル -->
+                <div class="memo-item">
+                    <div class="memo-date">2025年12月01日</div>
+                    <div class="memo-card">
+                        <div class="memo-header">
+                            <h3 class="memo-title">GitHubの基本操作を復習</h3>
+                            <span class="memo-tag tag-study">学習ノート</span>
+                        </div>
+                        <div class="memo-content">
+                            <p>
+                                Gitの基本コマンドとGitHub Pagesのデプロイ手順を復習しました。
+                            </p>
+                            <ul class="memo-list">
+                                <li><code>git add</code> - 変更をステージングエリアに追加</li>
+                                <li><code>git commit</code> - 変更をコミット</li>
+                                <li><code>git push</code> - リモートリポジトリにプッシュ</li>
+                            </ul>
+                        </div>
+                        <div class="memo-tags">
+                            <span class="tag">Git</span>
+                            <span class="tag">GitHub</span>
+                            <span class="tag">バージョン管理</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Memo項目3 - サンプル -->
+                <div class="memo-item">
+                    <div class="memo-date">2025年11月30日</div>
+                    <div class="memo-card">
+                        <div class="memo-header">
+                            <h3 class="memo-title">レスポンシブデザインのベストプラクティス</h3>
+                            <span class="memo-tag tag-tech">技術メモ</span>
+                        </div>
+                        <div class="memo-content">
+                            <p>
+                                モバイルファースト設計の重要性と、メディアクエリの効果的な使用方法について学習。
+                            </p>
+                            <ul class="memo-list">
+                                <li>モバイル: 〜768px</li>
+                                <li>タブレット: 768px〜1024px</li>
+                                <li>デスクトップ: 1024px〜</li>
+                            </ul>
+                        </div>
+                        <div class="memo-tags">
+                            <span class="tag">CSS</span>
+                            <span class="tag">レスポンシブ</span>
+                            <span class="tag">UI/UX</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 追加のメモをここに記入できます -->
+
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 張利軍. All rights reserved.</p>
+            <p class="footer-note">Built with HTML, CSS and JavaScript | Hosted on GitHub Pages</p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>

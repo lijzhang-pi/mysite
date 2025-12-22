@@ -786,3 +786,229 @@ ul {
         padding: 0 var(--spacing-sm);
     }
 }
+
+/* ============================================
+   Memo ページスタイル
+   ============================================ */
+
+/* Memoヒーローセクション */
+.memo-hero {
+    padding: var(--spacing-xl) 0;
+    min-height: 40vh;
+}
+
+.memo-hero .hero-title {
+    font-size: 3rem;
+}
+
+/* Memoセクション */
+.memo-section {
+    background-color: var(--bg-color);
+}
+
+/* Memoタイムライン */
+.memo-timeline {
+    position: relative;
+    padding: var(--spacing-lg) 0;
+}
+
+.memo-timeline::before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+}
+
+/* Memo項目 */
+.memo-item {
+    position: relative;
+    padding-left: 80px;
+    margin-bottom: var(--spacing-lg);
+}
+
+.memo-item::before {
+    content: '';
+    position: absolute;
+    left: 23px;
+    top: 8px;
+    width: 16px;
+    height: 16px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    border: 3px solid var(--bg-color);
+    box-shadow: 0 0 0 3px var(--primary-color);
+}
+
+/* Memo日付 */
+.memo-date {
+    position: absolute;
+    left: 80px;
+    top: 5px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Memoカード */
+.memo-card {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-speed);
+    margin-top: 35px;
+}
+
+.memo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Memoヘッダー */
+.memo-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-md);
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.memo-title {
+    color: var(--text-primary);
+    font-size: 1.4rem;
+    margin: 0;
+    flex: 1;
+}
+
+.memo-tag {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.memo-tag.tag-work {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.memo-tag.tag-study {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+}
+
+.memo-tag.tag-tech {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+}
+
+.memo-tag.tag-idea {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    color: white;
+}
+
+/* Memoコンテンツ */
+.memo-content {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-md);
+}
+
+.memo-content p {
+    margin-bottom: var(--spacing-sm);
+}
+
+.memo-content code {
+    background-color: #f4f4f4;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+    color: #e83e8c;
+}
+
+/* Memoリスト */
+.memo-list {
+    margin: var(--spacing-sm) 0;
+    padding-left: var(--spacing-lg);
+}
+
+.memo-list li {
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-secondary);
+}
+
+/* Memoタグ */
+.memo-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+}
+
+/* ============================================
+   Memo ページ レスポンシブ対応
+   ============================================ */
+
+@media (max-width: 768px) {
+    /* Memoタイムライン */
+    .memo-timeline::before {
+        left: 15px;
+    }
+
+    .memo-item {
+        padding-left: 50px;
+    }
+
+    .memo-item::before {
+        left: 8px;
+    }
+
+    .memo-date {
+        position: static;
+        display: block;
+        margin-bottom: var(--spacing-xs);
+        font-size: 0.85rem;
+    }
+
+    .memo-card {
+        margin-top: var(--spacing-sm);
+    }
+
+    .memo-title {
+        font-size: 1.2rem;
+    }
+
+    .memo-hero .hero-title {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .memo-item {
+        padding-left: 40px;
+    }
+
+    .memo-card {
+        padding: var(--spacing-md);
+    }
+
+    .memo-title {
+        font-size: 1.1rem;
+    }
+
+    .memo-tag {
+        font-size: 0.75rem;
+        padding: 4px 12px;
+    }
+
+    .memo-hero .hero-title {
+        font-size: 1.8rem;
+    }
+}
