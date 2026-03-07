@@ -4,11 +4,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="張利軍のポートフォリオサイト - 金融システムエンジニア">
-    <meta name="keywords" content="システムエンジニア,金融システム,COBOL,Python,Java,クレジットカード">
+
+    <!-- SEO基本タグ -->
+    <meta name="description" content="張利軍 - 11年以上の経験を持つ金融システムエンジニア。COBOL、Python、Java、AWS等の技術を活用し、三菱UFJ銀行、JCBなど大手金融機関のシステム開発に携わっています。">
+    <meta name="keywords" content="張利軍,システムエンジニア,金融システム,COBOL,Python,Java,AWS,三菱UFJ銀行,JCB,ISO20022,クレジットカード,メインフレーム">
     <meta name="author" content="張利軍">
-    <title>張利軍 - システムエンジニア</title>
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Japanese">
+    <link rel="canonical" href="https://lijzhang-pi.github.io/mysite/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lijzhang-pi.github.io/mysite/">
+    <meta property="og:title" content="張利軍 - 金融システムエンジニア | 11年以上の実務経験">
+    <meta property="og:description" content="COBOL、Python、Java、AWSを駆使した金融システム開発のプロフェッショナル。三菱UFJ銀行、JCBなど大手金融機関でのプロジェクト経験多数。">
+    <meta property="og:image" content="https://lijzhang-pi.github.io/mysite/assets/og-image.jpg">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:site_name" content="張利軍 ポートフォリオ">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://lijzhang-pi.github.io/mysite/">
+    <meta name="twitter:title" content="張利軍 - 金融システムエンジニア">
+    <meta name="twitter:description" content="11年以上の経験を持つ金融システムエンジニア。COBOL、Python、Java、AWS等の技術を活用。">
+    <meta name="twitter:image" content="https://lijzhang-pi.github.io/mysite/assets/og-image.jpg">
+
+    <!-- アプリケーションメタ -->
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="張利軍">
+    <meta name="format-detection" content="telephone=no">
+
+    <title>張利軍 - 金融システムエンジニア | COBOL・Python・Java・AWS</title>
+
+    <!-- リソースプリロード -->
+    <link rel="preload" href="styles/main.css" as="style">
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- DNS プリフェッチ -->
+    <link rel="dns-prefetch" href="https://lijzhang-pi.github.io">
+
+    <!-- 構造化データ (Schema.org JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "張利軍",
+      "alternateName": "Lijun Zhang",
+      "url": "https://lijzhang-pi.github.io/mysite/",
+      "image": "https://lijzhang-pi.github.io/mysite/assets/profile.jpg",
+      "jobTitle": "システムエンジニア",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "三菱UFJ銀行"
+      },
+      "description": "11年以上の経験を持つ金融システムエンジニア。COBOL、Python、Java、AWS等の技術を活用し、大手金融機関のシステム開発に携わる。",
+      "email": "lijzhang@outlook.com",
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "専門学校"
+      },
+      "knowsAbout": [
+        "COBOL",
+        "Python",
+        "Java",
+        "AWS",
+        "IBM z/OS",
+        "DB2",
+        "金融システム開発",
+        "ISO20022",
+        "クレジットカードシステム"
+      ],
+      "sameAs": [
+        "https://github.com/lijzhang-pi"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "東京",
+        "addressRegion": "東京都",
+        "addressCountry": "JP"
+      }
+    }
+    </script>
 </head>
 
 <body>
@@ -24,17 +103,17 @@
     </div>
 
     <!-- ナビゲーションバー -->
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="メインナビゲーション">
         <div class="container">
             <div class="nav-brand">
                 <h2>張 利軍</h2>
             </div>
-            <button class="nav-toggle" aria-label="メニュー切替">
-                <span></span>
-                <span></span>
-                <span></span>
+            <button class="nav-toggle" aria-label="メニュー切替" aria-expanded="false" aria-controls="main-menu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
             </button>
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="main-menu" role="menubar">
                 <li><a href="#home" class="nav-link">ホーム</a></li>
                 <li><a href="#about" class="nav-link">プロフィール</a></li>
                 <li><a href="#experience" class="nav-link">職務経歴</a></li>
@@ -46,7 +125,7 @@
     </nav>
 
     <!-- ヒーローセクション -->
-    <section id="home" class="hero">
+    <section id="home" class="hero" role="banner" aria-label="イントロダクション">
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">こんにちは、<span class="highlight">張 利軍</span>です</h1>
@@ -54,15 +133,15 @@
                 <p class="hero-description">
                     金融システム開発に特化した11年以上の実務経験を持つエンジニアです
                 </p>
-                <a href="#about" class="btn btn-primary">詳しく見る</a>
+                <a href="#about" class="btn btn-primary" aria-label="プロフィールセクションへ移動">詳しく見る</a>
             </div>
         </div>
     </section>
 
     <!-- プロフィール -->
-    <section id="about" class="section about">
+    <section id="about" class="section about" role="region" aria-labelledby="about-title">
         <div class="container">
-            <h2 class="section-title">プロフィール</h2>
+            <h2 id="about-title" class="section-title">プロフィール</h2>
             <div class="about-content">
                 <div class="about-grid">
                     <div class="about-text">
@@ -97,7 +176,7 @@
     </section>
 
     <!-- 職務経歴 -->
-    <section id="experience" class="section projects">
+    <section id="experience" class="section projects" role="region" aria-labelledby="experience-title">
         <div class="container">
             <h2 class="section-title">職務経歴</h2>
             <div class="timeline">
@@ -220,9 +299,9 @@
     </section>
 
     <!-- スキル -->
-    <section id="skills" class="section skills">
+    <section id="skills" class="section skills" role="region" aria-labelledby="skills-title">
         <div class="container">
-            <h2 class="section-title">スキル</h2>
+            <h2 id="skills-title" class="section-title">スキル</h2>
             <div class="skills-container">
                 <!-- OS/機種 -->
                 <div class="skill-category">
@@ -358,9 +437,9 @@
     </section>
 
     <!-- お問い合わせ -->
-    <section id="contact" class="section contact">
+    <section id="contact" class="section contact" role="region" aria-labelledby="contact-title">
         <div class="container">
-            <h2 class="section-title">お問い合わせ</h2>
+            <h2 id="contact-title" class="section-title">お問い合わせ</h2>
             <div class="contact-content">
                 <p class="contact-intro">
                     ご連絡は以下の方法でお願いいたします
@@ -387,14 +466,24 @@
     </section>
 
     <!-- フッター -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo" aria-label="サイトフッター">
         <div class="container">
             <p>&copy; 2025 張利軍. All rights reserved.</p>
             <p class="footer-note">Built with HTML, CSS and JavaScript | Hosted on GitHub Pages</p>
         </div>
     </footer>
 
-    <script src="scripts/main.js"></script>
+    <!-- テーマ切替ボタン -->
+    <button class="theme-toggle" id="theme-toggle" aria-label="テーマ切替" title="ダークモード切替">
+        <span id="theme-icon">🌙</span>
+    </button>
+
+    <!-- トップに戻るボタン -->
+    <button class="back-to-top" id="back-to-top" aria-label="トップに戻る" title="トップに戻る">
+        ↑
+    </button>
+
+    <script src="scripts/main.js" defer></script>
 </body>
 
 </html>

@@ -4,10 +4,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="張利軍の日常Memo - 学習ノート・作業ログ・技術メモ">
+
+    <!-- SEO基本タグ -->
+    <meta name="description" content="張利軍の日常Memo - 学習ノート、作業ログ、技術メモを記録。金融システム開発、COBOL、Python、Javaなどの技術情報を発信しています。">
+    <meta name="keywords" content="張利軍,Memo,学習ノート,技術メモ,作業ログ,システム開発,COBOL,Python,Java">
     <meta name="author" content="張利軍">
-    <title>Memo - 張利軍</title>
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Japanese">
+    <link rel="canonical" href="https://lijzhang-pi.github.io/mysite/memo.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lijzhang-pi.github.io/mysite/memo.html">
+    <meta property="og:title" content="Memo - 張利軍の学習ノート・技術メモ">
+    <meta property="og:description" content="日常の学習記録、作業ログ、技術メモを時系列で公開。金融システム開発の実務経験を基にした情報を発信。">
+    <meta property="og:image" content="https://lijzhang-pi.github.io/mysite/assets/og-image.jpg">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:site_name" content="張利軍 ポートフォリオ">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://lijzhang-pi.github.io/mysite/memo.html">
+    <meta name="twitter:title" content="Memo - 張利軍の学習ノート">
+    <meta name="twitter:description" content="学習ノート、作業ログ、技術メモを時系列で公開。">
+    <meta name="twitter:image" content="https://lijzhang-pi.github.io/mysite/assets/og-image.jpg">
+
+    <!-- アプリケーションメタ -->
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="張利軍 Memo">
+    <meta name="format-detection" content="telephone=no">
+
+    <title>Memo - 張利軍の学習ノート・技術メモ</title>
+
+    <!-- リソースプリロード -->
+    <link rel="preload" href="styles/main.css" as="style">
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- DNS プリフェッチ -->
+    <link rel="dns-prefetch" href="https://lijzhang-pi.github.io">
 </head>
 
 <body>
@@ -23,17 +60,17 @@
     </div>
 
     <!-- ナビゲーションバー -->
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="メインナビゲーション">
         <div class="container">
             <div class="nav-brand">
                 <h2>張 利軍</h2>
             </div>
-            <button class="nav-toggle" aria-label="メニュー切替">
-                <span></span>
-                <span></span>
-                <span></span>
+            <button class="nav-toggle" aria-label="メニュー切替" aria-expanded="false" aria-controls="main-menu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
             </button>
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="main-menu" role="menubar">
                 <li><a href="index.html" class="nav-link">ホーム</a></li>
                 <li><a href="index.html#about" class="nav-link">プロフィール</a></li>
                 <li><a href="index.html#experience" class="nav-link">職務経歴</a></li>
@@ -45,7 +82,7 @@
     </nav>
 
     <!-- Memoヒーローセクション -->
-    <section class="hero memo-hero">
+    <section class="hero memo-hero" role="banner" aria-label="Memoページイントロダクション">
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title"><span class="highlight">Memo</span></h1>
@@ -152,14 +189,24 @@
     </section>
 
     <!-- フッター -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo" aria-label="サイトフッター">
         <div class="container">
             <p>&copy; 2025 張利軍. All rights reserved.</p>
             <p class="footer-note">Built with HTML, CSS and JavaScript | Hosted on GitHub Pages</p>
         </div>
     </footer>
 
-    <script src="scripts/main.js"></script>
+    <!-- テーマ切替ボタン -->
+    <button class="theme-toggle" id="theme-toggle" aria-label="テーマ切替" title="ダークモード切替">
+        <span id="theme-icon">🌙</span>
+    </button>
+
+    <!-- トップに戻るボタン -->
+    <button class="back-to-top" id="back-to-top" aria-label="トップに戻る" title="トップに戻る">
+        ↑
+    </button>
+
+    <script src="scripts/main.js" defer></script>
 </body>
 
 </html>

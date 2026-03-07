@@ -188,3 +188,99 @@ console.log('%c如果你对网站有任何建议，欢迎联系我。', 'color: 
 window.addEventListener('load', () => {
     console.log('✅ 页面加载完成');
 });
+// ====================
+// ダークモード切替
+// ====================
+
+// テーマ設定を取得
+function getThemePreference() {
+    // localStorageから保存されたテーマを取得
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        return savedTheme;
+    }
+    
+    // システムのダークモード設定を確認
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark';
+    }
+    
+    return 'light';
+}
+
+// テーマを適用
+function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    
+    // テーマアイコンを更新
+    const themeIcon = document.getElementById('theme-icon');
+    if (themeIcon) {
+        themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+    
+    // aria-labelを更新
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+        themeToggle.setAttribute('aria-label', 
+            theme === 'dark' ? 'ライトモードに切替' : 'ダークモードに切替'
+        );
+        themeToggle.setAttribute('title', 
+            theme === 'dark' ? 'ライトモードに切替' : 'ダークモードに切替'
+        );
+    }
+}
+
+// テーマを切替
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme') || getThemePreference();
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    applyTheme(newTheme);
+}
+
+// ページ読み込み時にテーマを適用
+document.addEventListener('DOMContentLoaded', () => {
+    const theme = getThemePreference();
+    applyTheme(theme);
+    
+    // テーマ切替ボタンのイベントリスナー
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
+    }
+});
+
+// システムのテーマ設定が変更された場合の対応
+if (window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        // ユーザーが手動で設定していない場合のみ、システム設定に従う
+        if (!localStorage.getItem('theme')) {
+            applyTheme(e.matches ? 'dark' : 'light');
+        }
+    });
+}
+
+// ====================
+// トップに戻るボタン
+// ====================
+
+const backToTopButton = document.getElementById('back-to-top');
+
+// スクロール位置に応じてボタンを表示/非表示
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('show');
+    } else {
+        backToTopButton.classList.remove('show');
+    }
+});
+
+// ボタンクリック時にトップにスクロール
+if (backToTopButton) {
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}

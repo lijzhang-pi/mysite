@@ -1,0 +1,15 @@
+# robots.txt for https://lijzhang-pi.github.io/mysite/
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://lijzhang-pi.github.io/mysite/sitemap.xml
+
+# ブロックするディレクトリ（該当する場合）
+Disallow: /assets/private/
+Disallow: /*.xlsx$
+Disallow: /*.docx$
+
+# クロール遅延（オプション）
+Crawl-delay: 1
