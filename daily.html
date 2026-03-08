@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO基本タグ -->
+    <meta name="description" content="張利軍の日常記録 - 日々の出来事、食事、おでかけ、趣味など日常の一コマを記録・共有しています。">
+    <meta name="keywords" content="張利軍,Daily,日常記録,日常,生活,東京,趣味,おでかけ">
+    <meta name="author" content="張利軍">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Japanese">
+    <link rel="canonical" href="https://lijzhang-pi.github.io/mysite/daily.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lijzhang-pi.github.io/mysite/daily.html">
+    <meta property="og:title" content="Daily - 張利軍の日常記録">
+    <meta property="og:description" content="日々の出来事、食事、おでかけ、趣味など日常の一コマを記録・共有しています。">
+    <meta property="og:image" content="https://lijzhang-pi.github.io/mysite/assets/og-image.jpg">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:site_name" content="張利軍 ポートフォリオ">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://lijzhang-pi.github.io/mysite/daily.html">
+    <meta name="twitter:title" content="Daily - 張利軍の日常記録">
+    <meta name="twitter:description" content="日々の出来事、食事、おでかけ、趣味など日常の一コマを記録。">
+    <meta name="twitter:image" content="https://lijzhang-pi.github.io/mysite/assets/og-image.jpg">
+
+    <!-- アプリケーションメタ -->
+    <meta name="theme-color" content="#43e97b">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="張利軍 Daily">
+    <meta name="format-detection" content="telephone=no">
+
+    <title>Daily - 張利軍の日常記録</title>
+
+    <!-- リソースプリロード -->
+    <link rel="preload" href="styles/main.css" as="style">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- DNS プリフェッチ -->
+    <link rel="dns-prefetch" href="https://lijzhang-pi.github.io">
+</head>
+
+<body>
+    <!-- 東京時間表示 -->
+    <div class="time-bar">
+        <div class="container">
+            <div class="time-display">
+                <span class="time-icon">🕐</span>
+                <span class="time-label">東京現在時刻：</span>
+                <span id="tokyo-time" class="time-value">読み込み中...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ナビゲーションバー -->
+    <nav class="navbar" role="navigation" aria-label="メインナビゲーション">
+        <div class="container">
+            <div class="nav-brand">
+                <h2>張 利軍</h2>
+            </div>
+            <button class="nav-toggle" aria-label="メニュー切替" aria-expanded="false" aria-controls="main-menu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </button>
+            <ul class="nav-menu" id="main-menu" role="menubar">
+                <li><a href="index.html" class="nav-link">ホーム</a></li>
+                <li><a href="index.html#about" class="nav-link">プロフィール</a></li>
+                <li><a href="index.html#experience" class="nav-link">職務経歴</a></li>
+                <li><a href="index.html#skills" class="nav-link">スキル</a></li>
+                <li><a href="memo.html" class="nav-link">Memo</a></li>
+                <li><a href="daily.html" class="nav-link active">Daily</a></li>
+                <li><a href="index.html#contact" class="nav-link">お問い合わせ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Dailyヒーローセクション -->
+    <section class="hero daily-hero" role="banner" aria-label="Dailyページイントロダクション">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title"><span class="highlight">Daily</span></h1>
+                <p class="hero-subtitle">日常の記録・シェア</p>
+                <p class="hero-description">
+                    日々の出来事、食事、おでかけ、趣味など、日常の一コマをシェアしています
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dailyコンテンツ -->
+    <section class="section daily-section" role="region" aria-label="日常記録一覧">
+        <div class="container">
+            <h2 class="section-title">最近の日常</h2>
+
+            <div class="daily-grid">
+
+                <!-- Daily記録1 -->
+                <div class="daily-card">
+                    <div class="daily-card-image">🍜</div>
+                    <div class="daily-card-body">
+                        <p class="daily-card-date">2026年3月7日</p>
+                        <h3 class="daily-card-title">大久保でランチ</h3>
+                        <p class="daily-card-text">
+                            近所の中華料理屋さんでランチ。牛肉麺を頼んだら、スープが絶品だった。
+                            また行こうと思う。
+                        </p>
+                        <div>
+                            <span class="daily-tag tag-food">食事</span>
+                            <span class="daily-tag tag-daily">日常</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Daily記録2 -->
+                <div class="daily-card">
+                    <div class="daily-card-image">🌸</div>
+                    <div class="daily-card-body">
+                        <p class="daily-card-date">2026年3月5日</p>
+                        <h3 class="daily-card-title">新宿御苑へ散歩</h3>
+                        <p class="daily-card-text">
+                            天気が良かったので新宿御苑へ。梅が咲いていてとても綺麗だった。
+                            春の訪れを感じた一日。
+                        </p>
+                        <div>
+                            <span class="daily-tag tag-outing">おでかけ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Daily記録3 -->
+                <div class="daily-card">
+                    <div class="daily-card-image">📚</div>
+                    <div class="daily-card-body">
+                        <p class="daily-card-date">2026年3月2日</p>
+                        <h3 class="daily-card-title">読書の週末</h3>
+                        <p class="daily-card-text">
+                            週末は家でゆっくり読書。技術書を一冊読み切った。
+                            インプットの時間はやはり大切だと実感。
+                        </p>
+                        <div>
+                            <span class="daily-tag tag-hobby">趣味</span>
+                            <span class="daily-tag tag-daily">日常</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Daily記録4 -->
+                <div class="daily-card">
+                    <div class="daily-card-image">☕</div>
+                    <div class="daily-card-body">
+                        <p class="daily-card-date">2026年2月28日</p>
+                        <h3 class="daily-card-title">お気に入りのカフェ</h3>
+                        <p class="daily-card-text">
+                            新大久保のカフェでコーヒーを飲みながら作業。
+                            静かで集中できる場所を見つけた。お気に入りの場所になりそう。
+                        </p>
+                        <div>
+                            <span class="daily-tag tag-outing">おでかけ</span>
+                            <span class="daily-tag tag-food">食事</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Daily記録5 -->
+                <div class="daily-card">
+                    <div class="daily-card-image">🎮</div>
+                    <div class="daily-card-body">
+                        <p class="daily-card-date">2026年2月22日</p>
+                        <h3 class="daily-card-title">休日の過ごし方</h3>
+                        <p class="daily-card-text">
+                            久しぶりにゲームで遊んだ。仕事で頭を使う日々の中で、
+                            こういうリフレッシュの時間も必要だと感じた。
+                        </p>
+                        <div>
+                            <span class="daily-tag tag-hobby">趣味</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Daily記録6 -->
+                <div class="daily-card">
+                    <div class="daily-card-image">🗼</div>
+                    <div class="daily-card-body">
+                        <p class="daily-card-date">2026年2月15日</p>
+                        <h3 class="daily-card-title">東京タワーを眺める</h3>
+                        <p class="daily-card-text">
+                            芝公園を散歩しながら東京タワーを眺めた。
+                            東京に来て何年経っても、やはりこの景色は特別な気持ちになる。
+                        </p>
+                        <div>
+                            <span class="daily-tag tag-outing">おでかけ</span>
+                            <span class="daily-tag tag-travel">観光</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer" role="contentinfo" aria-label="サイトフッター">
+        <div class="container">
+            <p>&copy; 2025 張利軍. All rights reserved.</p>
+            <p class="footer-note">Built with HTML, CSS and JavaScript | Hosted on GitHub Pages</p>
+        </div>
+    </footer>
+
+    <!-- テーマ切替ボタン -->
+    <button class="theme-toggle" id="theme-toggle" aria-label="テーマ切替" title="ダークモード切替">
+        <span id="theme-icon">🌙</span>
+    </button>
+
+    <!-- トップに戻るボタン -->
+    <button class="back-to-top" id="back-to-top" aria-label="トップに戻る" title="トップに戻る">
+        ↑
+    </button>
+
+    <script src="scripts/main.js" defer></script>
+</body>
+
+</html>

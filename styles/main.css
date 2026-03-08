@@ -1080,6 +1080,121 @@ ul {
     }
 }
 
+/* ============================================
+   Daily ページスタイル
+   ============================================ */
+
+.daily-hero {
+    padding-top: 150px;
+    padding-bottom: var(--spacing-xl);
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.daily-hero .hero-content {
+    text-align: center;
+    width: 100%;
+}
+
+.daily-section {
+    background-color: var(--bg-gray);
+}
+
+.daily-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.daily-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.daily-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.daily-card-image {
+    height: 160px;
+    background: linear-gradient(135deg, #43e97b22 0%, #38f9d733 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+}
+
+.daily-card-body {
+    padding: var(--spacing-md);
+}
+
+.daily-card-date {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: var(--spacing-xs);
+}
+
+.daily-card-title {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-xs);
+}
+
+.daily-card-text {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: var(--spacing-sm);
+}
+
+.daily-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-right: 4px;
+    margin-bottom: 4px;
+}
+
+.daily-tag.tag-food {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+}
+
+.daily-tag.tag-outing {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+}
+
+.daily-tag.tag-hobby {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    color: white;
+}
+
+.daily-tag.tag-daily {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    color: white;
+}
+
+.daily-tag.tag-travel {
+    background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .daily-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* ====================
    テーマ切替ボタン
    ==================== */
