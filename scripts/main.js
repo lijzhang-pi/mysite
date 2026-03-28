@@ -1,4 +1,16 @@
 // ====================
+// ページローダー
+// ====================
+
+window.addEventListener('load', () => {
+    const loader = document.getElementById('page-loader');
+    if (loader) {
+        loader.classList.add('loaded');
+        setTimeout(() => loader.remove(), 600);
+    }
+});
+
+// ====================
 // 東京時間表示
 // ====================
 
@@ -6,7 +18,6 @@ function updateTokyoTime() {
     const timeElement = document.getElementById('tokyo-time');
     if (!timeElement) return;
 
-    // 東京時間を取得（Asia/Tokyo タイムゾーン）
     const tokyoTime = new Date().toLocaleString('ja-JP', {
         timeZone: 'Asia/Tokyo',
         year: 'numeric',
@@ -19,117 +30,110 @@ function updateTokyoTime() {
         hour12: false
     });
 
-    // フォーマット: YYYY年MM月DD日 (曜日) HH:mm:ss
     timeElement.textContent = tokyoTime;
 }
 
-// ページ読み込み時に即座に時刻を表示
 updateTokyoTime();
+let timeInterval = setInterval(updateTokyoTime, 1000);
 
-// 1秒ごとに時刻を更新
-setInterval(updateTokyoTime, 1000);
+// ページ非表示時にタイマーを停止（省エネ）
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        clearInterval(timeInterval);
+    } else {
+        updateTokyoTime();
+        timeInterval = setInterval(updateTokyoTime, 1000);
+    }
+});
 
 // ====================
-// 移动端导航菜单切换
+// モバイルナビゲーション
 // ====================
 
 const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('.nav-menu');
 const navLinks = document.querySelectorAll('.nav-link');
 
-// 切换菜单显示/隐藏
+function closeMenu() {
+    if (!navMenu || !navMenu.classList.contains('active')) return;
+    navMenu.classList.remove('active');
+    if (navToggle) {
+        navToggle.setAttribute('aria-expanded', 'false');
+        const spans = navToggle.querySelectorAll('span');
+        spans[0].style.transform = 'rotate(0) translate(0, 0)';
+        spans[1].style.opacity = '1';
+        spans[2].style.transform = 'rotate(0) translate(0, 0)';
+    }
+}
+
 if (navToggle) {
     navToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-
-        // 动画效果：切换汉堡菜单图标
+        const isActive = navMenu.classList.toggle('active');
+        navToggle.setAttribute('aria-expanded', isActive);
         const spans = navToggle.querySelectorAll('span');
-        spans[0].style.transform = navMenu.classList.contains('active')
-            ? 'rotate(45deg) translate(5px, 5px)'
-            : 'rotate(0) translate(0, 0)';
-        spans[1].style.opacity = navMenu.classList.contains('active') ? '0' : '1';
-        spans[2].style.transform = navMenu.classList.contains('active')
-            ? 'rotate(-45deg) translate(7px, -6px)'
-            : 'rotate(0) translate(0, 0)';
+        spans[0].style.transform = isActive ? 'rotate(45deg) translate(5px, 5px)' : 'rotate(0) translate(0, 0)';
+        spans[1].style.opacity = isActive ? '0' : '1';
+        spans[2].style.transform = isActive ? 'rotate(-45deg) translate(7px, -6px)' : 'rotate(0) translate(0, 0)';
     });
 }
 
-// 点击导航链接后关闭移动菜单
 navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        if (navMenu.classList.contains('active')) {
-            navMenu.classList.remove('active');
-
-            // 重置汉堡菜单图标
-            const spans = navToggle.querySelectorAll('span');
-            spans[0].style.transform = 'rotate(0) translate(0, 0)';
-            spans[1].style.opacity = '1';
-            spans[2].style.transform = 'rotate(0) translate(0, 0)';
-        }
-    });
+    link.addEventListener('click', closeMenu);
 });
 
 // ====================
-// 平滑滚动
+// スムーズスクロール
 // ====================
 
-// 为所有导航链接添加平滑滚动效果
 navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
         const targetId = link.getAttribute('href');
-
-        // 检查是否是页面内锚点
         if (targetId.startsWith('#')) {
             e.preventDefault();
             const targetSection = document.querySelector(targetId);
-
             if (targetSection) {
-                const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                const navbar = document.querySelector('.navbar');
+                const navbarHeight = navbar ? navbar.offsetHeight : 0;
                 const targetPosition = targetSection.offsetTop - navbarHeight;
-
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+                window.scrollTo({ top: targetPosition, behavior: 'smooth' });
             }
         }
     });
 });
 
 // ====================
-// 滚动时的导航栏效果
+// スクロールイベント（統合）
 // ====================
 
-let lastScrollTop = 0;
 const navbar = document.querySelector('.navbar');
+const backToTopButton = document.getElementById('back-to-top');
 
 window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollTop = window.scrollY;
 
-    // 添加滚动阴影效果
-    if (scrollTop > 50) {
-        navbar.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
-    } else {
-        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+    // ナビバーのシャドウ
+    if (navbar) {
+        navbar.style.boxShadow = scrollTop > 50
+            ? '0 4px 20px rgba(0, 0, 0, 0.08)'
+            : 'none';
     }
 
-    lastScrollTop = scrollTop;
-});
+    // トップに戻るボタン
+    if (backToTopButton) {
+        if (scrollTop > 300) {
+            backToTopButton.classList.add('show');
+        } else {
+            backToTopButton.classList.remove('show');
+        }
+    }
 
-// ====================
-// 活动导航链接高亮
-// ====================
-
-window.addEventListener('scroll', () => {
-    let current = '';
+    // アクティブナビリンク
     const sections = document.querySelectorAll('.section, .hero');
-
+    let current = '';
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        const navbarHeight = navbar.offsetHeight;
-
-        if (pageYOffset >= (sectionTop - navbarHeight - 100)) {
+        const navbarHeight = navbar ? navbar.offsetHeight : 0;
+        if (scrollTop >= sectionTop - navbarHeight - 100) {
             current = section.getAttribute('id');
         }
     });
@@ -140,147 +144,210 @@ window.addEventListener('scroll', () => {
             link.classList.add('active');
         }
     });
-});
+}, { passive: true });
 
 // ====================
-// 滚动动画（元素进入视口时显示）
+// トップに戻るボタン
 // ====================
 
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
+if (backToTopButton) {
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+// ====================
+// スクロールアニメーション（IntersectionObserver）
+// ====================
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.classList.add('animate-in');
+            observer.unobserve(entry.target);
         }
     });
-}, observerOptions);
+}, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -40px 0px'
+});
 
-// 观察所有项目卡片、技能类别和联系方式
+// スキルバー進捗アニメーション
+const skillBarObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const bars = entry.target.querySelectorAll('.skill-bar-fill');
+            bars.forEach((bar, index) => {
+                setTimeout(() => {
+                    bar.style.width = bar.dataset.width + '%';
+                }, index * 80);
+            });
+            skillBarObserver.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.2
+});
+
 document.addEventListener('DOMContentLoaded', () => {
+    // スクロールアニメーション対象
     const animatedElements = document.querySelectorAll(
-        '.project-card, .skill-category, .contact-item'
+        '.project-card, .skill-category, .contact-item, .timeline-item, .memo-card, .daily-card'
     );
-
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    animatedElements.forEach((el, index) => {
+        el.classList.add('animate-ready');
+        // グリッド内の交錯遅延
+        el.style.transitionDelay = (index % 3) * 0.1 + 's';
         observer.observe(el);
+    });
+
+    // スキルバー監視
+    document.querySelectorAll('.skill-category').forEach(cat => {
+        skillBarObserver.observe(cat);
     });
 });
 
 // ====================
-// 控制台欢迎信息
+// 数字カウンターアニメーション
 // ====================
 
-console.log('%c欢迎访问我的网站！', 'color: #4a90e2; font-size: 20px; font-weight: bold;');
-console.log('%c如果你对网站有任何建议，欢迎联系我。', 'color: #666; font-size: 14px;');
+const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const counters = entry.target.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = parseInt(counter.dataset.target);
+                const duration = 1500;
+                const start = performance.now();
 
-// ====================
-// 页面加载完成
-// ====================
+                function update(now) {
+                    const elapsed = now - start;
+                    const progress = Math.min(elapsed / duration, 1);
+                    // easeOutCubic
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    counter.textContent = Math.round(target * eased);
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    }
+                }
 
-window.addEventListener('load', () => {
-    console.log('✅ 页面加载完成');
+                requestAnimationFrame(update);
+            });
+            statsObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.3 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const statsGrid = document.querySelector('.stats-grid');
+    if (statsGrid) {
+        statsObserver.observe(statsGrid);
+    }
 });
+
+// ====================
+// 打字機效果（Hero）
+// ====================
+
+function typeWriter(element, texts, speed, pause) {
+    if (!element) return;
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    // カーソル要素を追加
+    const cursor = document.createElement('span');
+    cursor.className = 'typed-cursor';
+    element.after(cursor);
+
+    function tick() {
+        const current = texts[textIndex];
+
+        if (isDeleting) {
+            element.textContent = current.substring(0, charIndex - 1);
+            charIndex--;
+        } else {
+            element.textContent = current.substring(0, charIndex + 1);
+            charIndex++;
+        }
+
+        let delay = isDeleting ? speed / 2 : speed;
+
+        if (!isDeleting && charIndex === current.length) {
+            delay = pause;
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            textIndex = (textIndex + 1) % texts.length;
+            delay = speed;
+        }
+
+        setTimeout(tick, delay);
+    }
+
+    tick();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const typedEl = document.getElementById('typed-text');
+    if (typedEl) {
+        typeWriter(typedEl, [
+            'システムエンジニア',
+            '金融システムの専門家',
+            'COBOL / Java / Python',
+            '11年以上の実務経験'
+        ], 80, 2000);
+    }
+});
+
 // ====================
 // ダークモード切替
 // ====================
 
-// テーマ設定を取得
 function getThemePreference() {
-    // localStorageから保存されたテーマを取得
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        return savedTheme;
-    }
-    
-    // システムのダークモード設定を確認
+    if (savedTheme) return savedTheme;
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         return 'dark';
     }
-    
     return 'light';
 }
 
-// テーマを適用
 function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
-    
-    // テーマアイコンを更新
+
     const themeIcon = document.getElementById('theme-icon');
     if (themeIcon) {
         themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
     }
-    
-    // aria-labelを更新
+
     const themeToggle = document.getElementById('theme-toggle');
     if (themeToggle) {
-        themeToggle.setAttribute('aria-label', 
-            theme === 'dark' ? 'ライトモードに切替' : 'ダークモードに切替'
-        );
-        themeToggle.setAttribute('title', 
-            theme === 'dark' ? 'ライトモードに切替' : 'ダークモードに切替'
-        );
+        const label = theme === 'dark' ? 'ライトモードに切替' : 'ダークモードに切替';
+        themeToggle.setAttribute('aria-label', label);
+        themeToggle.setAttribute('title', label);
     }
 }
 
-// テーマを切替
 function toggleTheme() {
     const currentTheme = document.documentElement.getAttribute('data-theme') || getThemePreference();
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    applyTheme(newTheme);
+    applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
 }
 
-// ページ読み込み時にテーマを適用
 document.addEventListener('DOMContentLoaded', () => {
-    const theme = getThemePreference();
-    applyTheme(theme);
-    
-    // テーマ切替ボタンのイベントリスナー
+    applyTheme(getThemePreference());
+
     const themeToggle = document.getElementById('theme-toggle');
     if (themeToggle) {
         themeToggle.addEventListener('click', toggleTheme);
     }
 });
 
-// システムのテーマ設定が変更された場合の対応
 if (window.matchMedia) {
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-        // ユーザーが手動で設定していない場合のみ、システム設定に従う
         if (!localStorage.getItem('theme')) {
             applyTheme(e.matches ? 'dark' : 'light');
         }
-    });
-}
-
-// ====================
-// トップに戻るボタン
-// ====================
-
-const backToTopButton = document.getElementById('back-to-top');
-
-// スクロール位置に応じてボタンを表示/非表示
-window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) {
-        backToTopButton.classList.add('show');
-    } else {
-        backToTopButton.classList.remove('show');
-    }
-});
-
-// ボタンクリック時にトップにスクロール
-if (backToTopButton) {
-    backToTopButton.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
     });
 }

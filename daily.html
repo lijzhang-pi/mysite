@@ -38,6 +38,14 @@
 
     <title>Daily - 張利軍の日常記録</title>
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+    <!-- フォント -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <!-- リソースプリロード -->
     <link rel="preload" href="styles/main.css" as="style">
     <link rel="stylesheet" href="styles/main.css">
@@ -48,11 +56,19 @@
 </head>
 
 <body>
+    <!-- Skip to content -->
+    <a href="#daily-content" class="skip-link">コンテンツへスキップ</a>
+
+    <!-- ページローディング -->
+    <div class="page-loader" id="page-loader">
+        <div class="loader-spinner"></div>
+    </div>
+
     <!-- 東京時間表示 -->
     <div class="time-bar">
         <div class="container">
             <div class="time-display">
-                <span class="time-icon">🕐</span>
+                <span class="time-icon" aria-hidden="true">🕐</span>
                 <span class="time-label">東京現在時刻：</span>
                 <span id="tokyo-time" class="time-value">読み込み中...</span>
             </div>
@@ -96,7 +112,7 @@
     </section>
 
     <!-- Dailyコンテンツ -->
-    <section class="section daily-section" role="region" aria-label="日常記録一覧">
+    <section id="daily-content" class="section daily-section" role="region" aria-label="日常記録一覧">
         <div class="container">
             <h2 class="section-title">最近の日常</h2>
 
@@ -104,7 +120,7 @@
 
                 <!-- Daily記録1 -->
                 <div class="daily-card">
-                    <div class="daily-card-image">🍜</div>
+                    <div class="daily-card-image" aria-hidden="true">🍜</div>
                     <div class="daily-card-body">
                         <p class="daily-card-date">2026年3月7日</p>
                         <h3 class="daily-card-title">大久保でランチ</h3>
@@ -121,7 +137,7 @@
 
                 <!-- Daily記録2 -->
                 <div class="daily-card">
-                    <div class="daily-card-image">🌸</div>
+                    <div class="daily-card-image" aria-hidden="true">🌸</div>
                     <div class="daily-card-body">
                         <p class="daily-card-date">2026年3月5日</p>
                         <h3 class="daily-card-title">新宿御苑へ散歩</h3>
@@ -137,7 +153,7 @@
 
                 <!-- Daily記録3 -->
                 <div class="daily-card">
-                    <div class="daily-card-image">📚</div>
+                    <div class="daily-card-image" aria-hidden="true">📚</div>
                     <div class="daily-card-body">
                         <p class="daily-card-date">2026年3月2日</p>
                         <h3 class="daily-card-title">読書の週末</h3>
@@ -154,7 +170,7 @@
 
                 <!-- Daily記録4 -->
                 <div class="daily-card">
-                    <div class="daily-card-image">☕</div>
+                    <div class="daily-card-image" aria-hidden="true">☕</div>
                     <div class="daily-card-body">
                         <p class="daily-card-date">2026年2月28日</p>
                         <h3 class="daily-card-title">お気に入りのカフェ</h3>
@@ -171,7 +187,7 @@
 
                 <!-- Daily記録5 -->
                 <div class="daily-card">
-                    <div class="daily-card-image">🎮</div>
+                    <div class="daily-card-image" aria-hidden="true">🎮</div>
                     <div class="daily-card-body">
                         <p class="daily-card-date">2026年2月22日</p>
                         <h3 class="daily-card-title">休日の過ごし方</h3>
@@ -187,7 +203,7 @@
 
                 <!-- Daily記録6 -->
                 <div class="daily-card">
-                    <div class="daily-card-image">🗼</div>
+                    <div class="daily-card-image" aria-hidden="true">🗼</div>
                     <div class="daily-card-body">
                         <p class="daily-card-date">2026年2月15日</p>
                         <h3 class="daily-card-title">東京タワーを眺める</h3>
@@ -209,8 +225,39 @@
     <!-- フッター -->
     <footer class="footer" role="contentinfo" aria-label="サイトフッター">
         <div class="container">
-            <p>&copy; 2025 張利軍. All rights reserved.</p>
-            <p class="footer-note">Built with HTML, CSS and JavaScript | Hosted on GitHub Pages</p>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>張 利軍</h3>
+                    <p>金融システムエンジニア</p>
+                </div>
+                <div class="footer-links">
+                    <h4>ナビゲーション</h4>
+                    <ul>
+                        <li><a href="index.html">ホーム</a></li>
+                        <li><a href="index.html#about">プロフィール</a></li>
+                        <li><a href="index.html#experience">職務経歴</a></li>
+                        <li><a href="index.html#skills">スキル</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>コンテンツ</h4>
+                    <ul>
+                        <li><a href="memo.html">Memo</a></li>
+                        <li><a href="daily.html">Daily</a></li>
+                        <li><a href="index.html#contact">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>リンク</h4>
+                    <ul>
+                        <li><a href="https://github.com/lijzhang-pi" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                        <li><a href="mailto:lijzhang@outlook.com">メール</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 張利軍. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 

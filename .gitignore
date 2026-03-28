@@ -20,3 +20,8 @@ Desktop.ini
 *.tmp
 *.xlsx
 ~$*.xlsx
+
+# Claude Code
+.claude/
+tasks/
+.qoder/

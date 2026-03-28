@@ -30,13 +30,21 @@
     <meta name="twitter:image" content="https://lijzhang-pi.github.io/mysite/assets/og-image.jpg">
 
     <!-- アプリケーションメタ -->
-    <meta name="theme-color" content="#667eea">
+    <meta name="theme-color" content="#4a6cf7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="張利軍">
     <meta name="format-detection" content="telephone=no">
 
     <title>張利軍 - 金融システムエンジニア | COBOL・Python・Java・AWS</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+    <!-- フォント -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- リソースプリロード -->
     <link rel="preload" href="styles/main.css" as="style">
@@ -91,11 +99,19 @@
 </head>
 
 <body>
+    <!-- Skip to content (アクセシビリティ) -->
+    <a href="#home" class="skip-link">コンテンツへスキップ</a>
+
+    <!-- ページローディング -->
+    <div class="page-loader" id="page-loader">
+        <div class="loader-spinner"></div>
+    </div>
+
     <!-- 東京時間表示 -->
     <div class="time-bar">
         <div class="container">
             <div class="time-display">
-                <span class="time-icon">🕐</span>
+                <span class="time-icon" aria-hidden="true">🕐</span>
                 <span class="time-label">東京現在時刻：</span>
                 <span id="tokyo-time" class="time-value">読み込み中...</span>
             </div>
@@ -129,12 +145,17 @@
     <section id="home" class="hero" role="banner" aria-label="イントロダクション">
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title">こんにちは、<span class="highlight">張 利軍</span>です</h1>
-                <p class="hero-subtitle">システムエンジニア</p>
+                <p class="hero-greeting">こんにちは、私は</p>
+                <h1 class="hero-title"><span class="highlight">張 利軍</span></h1>
+                <p class="hero-subtitle" id="typed-text"></p>
                 <p class="hero-description">
-                    金融システム開発に特化した11年以上の実務経験を持つエンジニアです
+                    金融システム開発に特化した11年以上の実務経験を持つエンジニアです。<br>
+                    COBOL・Java・Pythonを駆使し、大手金融機関のシステムを支えています。
                 </p>
-                <a href="#about" class="btn btn-primary" aria-label="プロフィールセクションへ移動">詳しく見る</a>
+                <div class="hero-buttons">
+                    <a href="#about" class="btn btn-primary" aria-label="プロフィールセクションへ移動">詳しく見る</a>
+                    <a href="#contact" class="btn btn-ghost" aria-label="お問い合わせセクションへ移動">お問い合わせ</a>
+                </div>
             </div>
         </div>
     </section>
@@ -176,10 +197,38 @@
         </div>
     </section>
 
+    <!-- 数字で見る実績 -->
+    <section class="section stats-section" aria-label="実績サマリー">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" data-target="11">0</div>
+                    <div class="stat-suffix">年+</div>
+                    <div class="stat-label">開発経験</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="5">0</div>
+                    <div class="stat-suffix">件</div>
+                    <div class="stat-label">大型プロジェクト</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="5">0</div>
+                    <div class="stat-suffix">種+</div>
+                    <div class="stat-label">プログラミング言語</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="3">0</div>
+                    <div class="stat-suffix">社</div>
+                    <div class="stat-label">大手金融機関</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- 職務経歴 -->
     <section id="experience" class="section projects" role="region" aria-labelledby="experience-title">
         <div class="container">
-            <h2 class="section-title">職務経歴</h2>
+            <h2 id="experience-title" class="section-title">職務経歴</h2>
             <div class="timeline">
                 <!-- プロジェクト1（最新） -->
                 <div class="timeline-item">
@@ -339,20 +388,32 @@
                     <h3 class="skill-category-title">OS / 機種</h3>
                     <div class="skill-items">
                         <div class="skill-item">
-                            <span class="skill-name">Windows</span>
-                            <span class="skill-level level-a">A - 精通</span>
+                            <div class="skill-info">
+                                <span class="skill-name">Windows</span>
+                                <span class="skill-level level-a">精通</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-bar-fill" data-width="95"></div></div>
                         </div>
                         <div class="skill-item">
-                            <span class="skill-name">IBM z/OS</span>
-                            <span class="skill-level level-a">A - 精通</span>
+                            <div class="skill-info">
+                                <span class="skill-name">IBM z/OS</span>
+                                <span class="skill-level level-a">精通</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-bar-fill" data-width="95"></div></div>
                         </div>
                         <div class="skill-item">
-                            <span class="skill-name">Linux</span>
-                            <span class="skill-level level-b">B - 単独可能</span>
+                            <div class="skill-info">
+                                <span class="skill-name">Linux</span>
+                                <span class="skill-level level-b">単独可能</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-bar-fill" data-width="70"></div></div>
                         </div>
                         <div class="skill-item">
-                            <span class="skill-name">Mac OS</span>
-                            <span class="skill-level level-b">B - 単独可能</span>
+                            <div class="skill-info">
+                                <span class="skill-name">Mac OS</span>
+                                <span class="skill-level level-b">単独可能</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-bar-fill" data-width="70"></div></div>
                         </div>
                     </div>
                 </div>
@@ -362,24 +423,39 @@
                     <h3 class="skill-category-title">プログラミング言語</h3>
                     <div class="skill-items">
                         <div class="skill-item">
-                            <span class="skill-name">COBOL</span>
-                            <span class="skill-level level-a">A - 精通</span>
+                            <div class="skill-info">
+                                <span class="skill-name">COBOL</span>
+                                <span class="skill-level level-a">精通</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-bar-fill" data-width="95"></div></div>
                         </div>
                         <div class="skill-item">
-                            <span class="skill-name">Python</span>
-                            <span class="skill-level level-b">B - 単独可能</span>
+                            <div class="skill-info">
+                                <span class="skill-name">Python</span>
+                                <span class="skill-level level-b">単独可能</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-bar-fill" data-width="75"></div></div>
                         </div>
                         <div class="skill-item">
-                            <span class="skill-name">Java</span>
-                            <span class="skill-level level-c">B - 単独可能</span>
+                            <div class="skill-info">
+                                <span class="skill-name">Java</span>
+                                <span class="skill-level level-b">単独可能</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-bar-fill" data-width="75"></div></div>
                         </div>
                         <div class="skill-item">
-                            <span class="skill-name">JCL</span>
-                            <span class="skill-level level-a">A - 精通</span>
+                            <div class="skill-info">
+                                <span class="skill-name">JCL</span>
+                                <span class="skill-level level-a">精通</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-bar-fill" data-width="90"></div></div>
                         </div>
                         <div class="skill-item">
-                            <span class="skill-name">Easy-Plus</span>
-                            <span class="skill-level level-b">A - 精通</span>
+                            <div class="skill-info">
+                                <span class="skill-name">Easy-Plus</span>
+                                <span class="skill-level level-a">精通</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-bar-fill" data-width="90"></div></div>
                         </div>
                     </div>
                 </div>
@@ -389,16 +465,25 @@
                     <h3 class="skill-category-title">データベース</h3>
                     <div class="skill-items">
                         <div class="skill-item">
-                            <span class="skill-name">DB2</span>
-                            <span class="skill-level level-a">A - 精通</span>
+                            <div class="skill-info">
+                                <span class="skill-name">DB2</span>
+                                <span class="skill-level level-a">精通</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-bar-fill" data-width="95"></div></div>
                         </div>
                         <div class="skill-item">
-                            <span class="skill-name">Oracle</span>
-                            <span class="skill-level level-b">B - 単独可能</span>
+                            <div class="skill-info">
+                                <span class="skill-name">Oracle</span>
+                                <span class="skill-level level-b">単独可能</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-bar-fill" data-width="70"></div></div>
                         </div>
                         <div class="skill-item">
-                            <span class="skill-name">MongoDB</span>
-                            <span class="skill-level level-b">B - 単独可能</span>
+                            <div class="skill-info">
+                                <span class="skill-name">MongoDB</span>
+                                <span class="skill-level level-b">単独可能</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-bar-fill" data-width="65"></div></div>
                         </div>
                     </div>
                 </div>
@@ -408,20 +493,32 @@
                     <h3 class="skill-category-title">フレームワーク / ツール</h3>
                     <div class="skill-items">
                         <div class="skill-item">
-                            <span class="skill-name">Spring</span>
-                            <span class="skill-level level-b">B - 単独可能</span>
+                            <div class="skill-info">
+                                <span class="skill-name">Spring</span>
+                                <span class="skill-level level-b">単独可能</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-bar-fill" data-width="70"></div></div>
                         </div>
                         <div class="skill-item">
-                            <span class="skill-name">Angular</span>
-                            <span class="skill-level level-b">B - 単独可能</span>
+                            <div class="skill-info">
+                                <span class="skill-name">Angular</span>
+                                <span class="skill-level level-b">単独可能</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-bar-fill" data-width="65"></div></div>
                         </div>
                         <div class="skill-item">
-                            <span class="skill-name">TensorFlow</span>
-                            <span class="skill-level level-b">B - 単独可能</span>
+                            <div class="skill-info">
+                                <span class="skill-name">TensorFlow</span>
+                                <span class="skill-level level-b">単独可能</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-bar-fill" data-width="65"></div></div>
                         </div>
                         <div class="skill-item">
-                            <span class="skill-name">HLL/WB</span>
-                            <span class="skill-level level-a">A - 精通</span>
+                            <div class="skill-info">
+                                <span class="skill-name">HLL/WB</span>
+                                <span class="skill-level level-a">精通</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-bar-fill" data-width="90"></div></div>
                         </div>
                     </div>
                 </div>
@@ -431,16 +528,25 @@
                     <h3 class="skill-category-title">業務知識</h3>
                     <div class="skill-items">
                         <div class="skill-item">
-                            <span class="skill-name">金融システム</span>
-                            <span class="skill-level level-a">A - 精通</span>
+                            <div class="skill-info">
+                                <span class="skill-name">金融システム</span>
+                                <span class="skill-level level-a">精通</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-bar-fill" data-width="95"></div></div>
                         </div>
                         <div class="skill-item">
-                            <span class="skill-name">クレジットカード業務</span>
-                            <span class="skill-level level-a">A - 精通</span>
+                            <div class="skill-info">
+                                <span class="skill-name">クレジットカード業務</span>
+                                <span class="skill-level level-a">精通</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-bar-fill" data-width="95"></div></div>
                         </div>
                         <div class="skill-item">
-                            <span class="skill-name">SWIFT / ISO20022</span>
-                            <span class="skill-level level-a">A - 精通</span>
+                            <div class="skill-info">
+                                <span class="skill-name">SWIFT / ISO20022</span>
+                                <span class="skill-level level-a">精通</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-bar-fill" data-width="90"></div></div>
                         </div>
                     </div>
                 </div>
@@ -450,16 +556,25 @@
                     <h3 class="skill-category-title">言語能力</h3>
                     <div class="skill-items">
                         <div class="skill-item">
-                            <span class="skill-name">日本語</span>
-                            <span class="skill-level level-b">B - ビジネスレベル</span>
+                            <div class="skill-info">
+                                <span class="skill-name">日本語</span>
+                                <span class="skill-level level-b">ビジネスレベル</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-bar-fill" data-width="75"></div></div>
                         </div>
                         <div class="skill-item">
-                            <span class="skill-name">中国語</span>
-                            <span class="skill-level level-a">A - 母国語</span>
+                            <div class="skill-info">
+                                <span class="skill-name">中国語</span>
+                                <span class="skill-level level-a">母国語</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-bar-fill" data-width="100"></div></div>
                         </div>
                         <div class="skill-item">
-                            <span class="skill-name">英語</span>
-                            <span class="skill-level level-c">C - 交流可能</span>
+                            <div class="skill-info">
+                                <span class="skill-name">英語</span>
+                                <span class="skill-level level-c">交流可能</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-bar-fill" data-width="50"></div></div>
                         </div>
                     </div>
                 </div>
@@ -472,24 +587,25 @@
         <div class="container">
             <h2 id="contact-title" class="section-title">お問い合わせ</h2>
             <div class="contact-content">
-                <p class="contact-intro">
-                    ご連絡は以下の方法でお願いいたします
-                </p>
+                <div class="contact-cta">
+                    <h3>一緒に働きませんか？</h3>
+                    <p>プロジェクトのご相談、お仕事のご依頼など、お気軽にご連絡ください。</p>
+                </div>
                 <div class="contact-methods">
-                    <div class="contact-item">
-                        <div class="contact-icon">📧</div>
+                    <a href="mailto:lijzhang@outlook.com" class="contact-item" aria-label="メールを送る">
+                        <div class="contact-icon" aria-hidden="true">📧</div>
                         <h3>メール</h3>
-                        <p><a href="mailto:lijzhang@outlook.com">lijzhang@outlook.com</a></p>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">🔗</div>
+                        <p>lijzhang@outlook.com</p>
+                    </a>
+                    <a href="https://github.com/lijzhang-pi" target="_blank" rel="noopener noreferrer" class="contact-item" aria-label="GitHubプロフィール">
+                        <div class="contact-icon" aria-hidden="true">🔗</div>
                         <h3>GitHub</h3>
-                        <p><a href="https://github.com/lijzhang-pi" target="_blank">github.com/lijzhang-pi</a></p>
-                    </div>
+                        <p>github.com/lijzhang-pi</p>
+                    </a>
                     <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <h3>最寄り駅</h3>
-                        <p>大久保駅</p>
+                        <div class="contact-icon" aria-hidden="true">📍</div>
+                        <h3>所在地</h3>
+                        <p>東京都・大久保</p>
                     </div>
                 </div>
             </div>
@@ -499,8 +615,39 @@
     <!-- フッター -->
     <footer class="footer" role="contentinfo" aria-label="サイトフッター">
         <div class="container">
-            <p>&copy; 2025 張利軍. All rights reserved.</p>
-            <p class="footer-note">Built with HTML, CSS and JavaScript | Hosted on GitHub Pages</p>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>張 利軍</h3>
+                    <p>金融システムエンジニア</p>
+                </div>
+                <div class="footer-links">
+                    <h4>ナビゲーション</h4>
+                    <ul>
+                        <li><a href="#home">ホーム</a></li>
+                        <li><a href="#about">プロフィール</a></li>
+                        <li><a href="#experience">職務経歴</a></li>
+                        <li><a href="#skills">スキル</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>コンテンツ</h4>
+                    <ul>
+                        <li><a href="memo.html">Memo</a></li>
+                        <li><a href="daily.html">Daily</a></li>
+                        <li><a href="#contact">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>リンク</h4>
+                    <ul>
+                        <li><a href="https://github.com/lijzhang-pi" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                        <li><a href="mailto:lijzhang@outlook.com">メール</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 張利軍. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 

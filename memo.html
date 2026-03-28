@@ -30,13 +30,21 @@
     <meta name="twitter:image" content="https://lijzhang-pi.github.io/mysite/assets/og-image.jpg">
 
     <!-- アプリケーションメタ -->
-    <meta name="theme-color" content="#667eea">
+    <meta name="theme-color" content="#4a6cf7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="張利軍 Memo">
     <meta name="format-detection" content="telephone=no">
 
     <title>Memo - 張利軍の学習ノート・技術メモ</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+    <!-- フォント -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- リソースプリロード -->
     <link rel="preload" href="styles/main.css" as="style">
@@ -48,11 +56,19 @@
 </head>
 
 <body>
+    <!-- Skip to content -->
+    <a href="#memo-content" class="skip-link">コンテンツへスキップ</a>
+
+    <!-- ページローディング -->
+    <div class="page-loader" id="page-loader">
+        <div class="loader-spinner"></div>
+    </div>
+
     <!-- 東京時間表示 -->
     <div class="time-bar">
         <div class="container">
             <div class="time-display">
-                <span class="time-icon">🕐</span>
+                <span class="time-icon" aria-hidden="true">🕐</span>
                 <span class="time-label">東京現在時刻：</span>
                 <span id="tokyo-time" class="time-value">読み込み中...</span>
             </div>
@@ -96,7 +112,7 @@
     </section>
 
     <!-- Memoタイムライン -->
-    <section class="section memo-section">
+    <section id="memo-content" class="section memo-section">
         <div class="container">
             <h2 class="section-title">最近のMemo</h2>
 
@@ -192,8 +208,39 @@
     <!-- フッター -->
     <footer class="footer" role="contentinfo" aria-label="サイトフッター">
         <div class="container">
-            <p>&copy; 2025 張利軍. All rights reserved.</p>
-            <p class="footer-note">Built with HTML, CSS and JavaScript | Hosted on GitHub Pages</p>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>張 利軍</h3>
+                    <p>金融システムエンジニア</p>
+                </div>
+                <div class="footer-links">
+                    <h4>ナビゲーション</h4>
+                    <ul>
+                        <li><a href="index.html">ホーム</a></li>
+                        <li><a href="index.html#about">プロフィール</a></li>
+                        <li><a href="index.html#experience">職務経歴</a></li>
+                        <li><a href="index.html#skills">スキル</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>コンテンツ</h4>
+                    <ul>
+                        <li><a href="memo.html">Memo</a></li>
+                        <li><a href="daily.html">Daily</a></li>
+                        <li><a href="index.html#contact">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>リンク</h4>
+                    <ul>
+                        <li><a href="https://github.com/lijzhang-pi" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                        <li><a href="mailto:lijzhang@outlook.com">メール</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 張利軍. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
